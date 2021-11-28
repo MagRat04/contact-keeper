@@ -102,6 +102,11 @@ const AuthState = (props) => {
     dispatch({ type: CLEAR_ERRORS });
   };
 
+  // load user on first run or refresh
+  if (state.loading) {
+    loadUser(dispatch);
+  }
+
   return (
     <AuthContext.Provider
       value={{
